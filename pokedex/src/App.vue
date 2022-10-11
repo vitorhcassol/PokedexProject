@@ -1,14 +1,16 @@
 <template>
-  <div>
-    {{queryAtual}}
-  </div>
+  <ListaPokemon :queryAtual="this.queryAtual"></ListaPokemon>
 </template>
 
 <script>
 
+  import ListaPokemon from '@/components/ListaPokemon.vue'
 
 export default {
   name: 'App',
+  components: {
+    ListaPokemon
+  },
   
   data() {
     return {
