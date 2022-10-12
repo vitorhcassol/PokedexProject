@@ -1,5 +1,14 @@
 <template>
   <ListaPokemon :queryAtual="this.queryAtual"></ListaPokemon>
+
+  <!-- Botão de voltar -->
+  <button
+  :disabled="!this.queryAnterior"
+  @click="getPokemonPage(queryAnterior)"> \ </button>
+
+  <!-- Botão de avançar -->
+  <button
+  @click="getPokemonPage(queryProxima)"> / </button>
 </template>
 
 <script>
