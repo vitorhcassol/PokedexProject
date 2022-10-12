@@ -1,6 +1,6 @@
 <template>
-    <section v-for="index in this.lista">
-        {{ index.name }}
+    <section v-for="pokemon in this.lista" :key="pokemon.name">
+        {{ pokemon.name }}
     </section>
 </template>
 
@@ -26,6 +26,10 @@ export default {
     },
 
     created() {
+        this.getLista(this.queryAtual)
+    },
+
+    updated() {
         this.getLista(this.queryAtual)
     }
 }
