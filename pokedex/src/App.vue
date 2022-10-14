@@ -1,25 +1,33 @@
 <template>
+  <Header></Header>
   <ListaPokemon :queryAtual="this.queryAtual"></ListaPokemon>
 
-  <!-- Botão de voltar -->
-  <button
-  :disabled="!this.queryAnterior"
-  @click="getPokemonPage(queryAnterior)"> \ </button>
-
-  <!-- Botão de avançar -->
-  <button
-  @click="getPokemonPage(queryProxima)"> / </button>
+  <div id="footer">
+    <!-- Botão de voltar -->
+    <button
+    :disabled="!this.queryAnterior"
+    @click="getPokemonPage(queryAnterior)">
+    <img src="./img/Arrow-left.png" alt="seta para a esquerda">
+    </button>
+    <!-- Botão de avançar -->
+    <button
+    @click="getPokemonPage(queryProxima)">
+    <img src="./img/Arrow-right.png" alt="seta para a direita">
+    </button>
+  </div>
 </template>
 
 <script>
 
   import ListaPokemon from '@/components/ListaPokemon.vue'
+  import Header from '@/components/Header.vue'
 
 export default {
   name: 'App',
   components: {
-    ListaPokemon
-  },
+    ListaPokemon,
+    Header
+},
   
   data() {
     return {
@@ -50,6 +58,62 @@ export default {
 
 </script>
 
-<style scoped>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
+  :root {
+    /* Colors */
+    --primary-color: #DC092C;
+    --secondary-color: #70C2F4;
+
+    --white: #FFFFFF;
+
+    --black: #01261F;
+    --aux-black: #01282175;
+
+    /* 1rem = 10px */
+    font-size: 62.5%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+  }
+
+  #footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 10.8rem;
+    padding: 0rem 1.5rem;
+
+    background-color: var(--primary-color);
+  }
+
+  button {
+    width: 12rem;
+    height: 4rem;
+
+    border-radius: 0.5rem;
+
+    box-shadow: 0.2rem 0.2rem 0.2rem var(--aux-black);
+
+    background-color: var(--black);
+
+    border: none;
+  }
+
+  button:disabled {
+    background-color: var(--aux-black);
+  }
 </style>
