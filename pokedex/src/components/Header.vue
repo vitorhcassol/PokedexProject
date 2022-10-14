@@ -12,7 +12,7 @@
 
 </script>
 
-<style>
+<style scoped>
     #header {
         height: 7.2rem;
         
@@ -20,6 +20,7 @@
         
         color: var(--white);
         font-size: 2.4rem;
+        font-family: 'Cantora One', sans-serif;
     }
     
     .wrapper {

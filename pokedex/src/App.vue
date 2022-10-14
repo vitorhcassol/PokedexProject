@@ -29,7 +29,7 @@ export default {
   components: {
     ListaPokemon,
     Header
-},
+  },
   
   data() {
     return {
@@ -61,6 +61,14 @@ export default {
 </script>
 
 <style>
+
+  /* Importando as fontes que serã usadas */
+  /* VT323 */
+  @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+  /* Cantora One */
+  @import url('https://fonts.googleapis.com/css2?family=Cantora+One&display=swap');
+
   *{
     margin: 0;
     padding: 0;
@@ -70,12 +78,13 @@ export default {
   :root {
     /* Colors */
     --primary-color: #DC092C;
-    --secondary-color: #70C2F4;
+    --secondary-color: #28ABFD;
 
     --white: #FFFFFF;
 
     --black: #01261F;
     --aux-black: #01282175;
+    --aux-black-2: #222529;
 
     /* 1rem = 10px */
     font-size: 62.5%;
