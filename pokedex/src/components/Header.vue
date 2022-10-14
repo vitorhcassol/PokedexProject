@@ -1,6 +1,6 @@
 <template>
     <div id="header">
-        <div id="wrapper">
+        <div class="wrapper">
             <img src="../img/Pokéball.png" alt="">
             <span>Pokédex</span>
             <img src="../img/Icon.png" alt="">
@@ -22,7 +22,7 @@
         font-size: 2.4rem;
     }
     
-    #wrapper {
+    .wrapper {
         display: flex;
         justify-content: space-between;
         align-items: center;

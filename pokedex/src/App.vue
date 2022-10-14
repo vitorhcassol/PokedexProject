@@ -3,17 +3,19 @@
   <ListaPokemon :queryAtual="this.queryAtual"></ListaPokemon>
 
   <div id="footer">
-    <!-- Botão de voltar -->
-    <button
-    :disabled="!this.queryAnterior"
-    @click="getPokemonPage(queryAnterior)">
-    <img src="./img/Arrow-left.png" alt="seta para a esquerda">
-    </button>
-    <!-- Botão de avançar -->
-    <button
-    @click="getPokemonPage(queryProxima)">
-    <img src="./img/Arrow-right.png" alt="seta para a direita">
-    </button>
+    <div class="rounded">
+      <!-- Botão de voltar -->
+      <button
+      :disabled="!this.queryAnterior"
+      @click="getPokemonPage(queryAnterior)">
+      <img src="./img/Arrow-left.png" alt="seta para a esquerda">
+      </button>
+      <!-- Botão de avançar -->
+      <button
+      @click="getPokemonPage(queryProxima)">
+      <img src="./img/Arrow-right.png" alt="seta para a direita">
+      </button>
+    </div>
   </div>
 </template>
 
@@ -90,14 +92,21 @@ export default {
   }
 
   #footer {
+    height: 10.8rem;
+
+    background-color: var(--primary-color);
+  }
+
+  .rounded {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    height: 10.8rem;
-    padding: 0rem 1.5rem;
+    padding: 3.4rem 2.4rem;
 
-    background-color: var(--primary-color);
+    max-width: 37.5rem;
+
+    margin: auto;
   }
 
   button {
