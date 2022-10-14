@@ -3,13 +3,17 @@
         <div class="col-a">
             <p> {{ this.name }} </p>
 
-            <div v-for="tipo in this.types"
+            <div class="types"
+            v-for="tipo in this.types"
             :key="tipo.index">
                 <div class="type">
                     {{ tipo.type.name }}
                 </div>
             </div>
 
+        </div>
+
+        <div class="col-c">
             <span> #{{ this.id }} </span>
         </div>
 
@@ -23,6 +27,7 @@
 
 export default {
     props: ["pokemonURL"],
+
     data() {
         return {
             id: undefined,
@@ -33,12 +38,13 @@ export default {
     },
 
     methods: {
+
         getPokemonInfo(pokemonURL) {
             this.axios
             .get(pokemonURL)
             .then((response) => {
                 this.id = response.data.id;
-                this.name = response.data.name;
+                this.name = response.data.name[0].toUpperCase() + response.data.name.substr(1);
                 this.types = response.data.types;
                 this.image = response.data.sprites.front_default;
             })
@@ -60,13 +66,12 @@ export default {
         display: grid;
         grid-template-columns: 40% 1fr;
         grid-template-areas:
-        'A B';
+        'A B'
+        'C B';
 
         width: 15rem;
         height: 11rem;
         border-radius: 1.5rem;
-
-        padding: 1.6rem 1.6rem 1rem 1.6rem;
 
         background-color: var(--secondary-color);
 
@@ -79,10 +84,41 @@ export default {
 
     .col-a {
         grid-area: A;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        padding-left: 1.6rem;
+
     }
 
     .col-b {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+
         grid-area: B;
+    }
+
+    .col-c {
+        grid-area: C;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: baseline;
+
+        padding-left: 1.6rem;
+    }
+
+    .col-a p {
+        margin-bottom: 0.8rem;
+    }
+
+    .types {
+        margin-bottom: 0.4rem;
     }
 
     .type {
@@ -94,5 +130,11 @@ export default {
         background-color: var(--aux-black-2);
 
         font-size: 1.2rem;
+        text-align: center;
+    }
+
+    .col-a span {
+        display: block;
+        
     }
 </style>
