@@ -101,8 +101,6 @@ export default {
   }
 
   #footer {
-    height: 10.8rem;
-
     background-color: var(--primary-color);
   }
 

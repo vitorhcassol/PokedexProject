@@ -3,10 +3,10 @@
         <div class="col-a">
             <p> {{ this.name }} </p>
 
-            <div class="types"
-            v-for="tipo in this.types"
-            :key="tipo.index">
-                <div class="type">
+            <div class="types">
+                <div class="type"
+                v-for="tipo in this.types"
+                :key="tipo.index">
                     {{ tipo.type.name }}
                 </div>
             </div>
@@ -118,6 +118,10 @@ export default {
     }
 
     .types {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+
         margin-bottom: 0.4rem;
     }
 
@@ -134,7 +138,6 @@ export default {
     }
 
     .col-a span {
-        display: block;
-        
+        display: block; 
     }
 </style>

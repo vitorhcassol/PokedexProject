@@ -1,8 +1,9 @@
 <template>
-    <section v-for="pokemon in this.lista"
-    :key="pokemon.name"
+    <section
     class="list">
-        <Card :pokemonURL="pokemon.url"></Card>
+        <Card v-for="pokemon in this.lista"
+        :key="pokemon.name"
+        :pokemonURL="pokemon.url"></Card>
     </section>
 </template>
 
@@ -42,6 +43,13 @@ export default {
 
 <style scoped>
     .list {
-        padding: 3.2rem 2.4rem 2.4rem 2.4rem;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-areas:
+        'A B';
+        row-gap: 1.2rem;
+        justify-items: center;
+
+        padding: 3.2rem 0rem;
     }
 </style>
